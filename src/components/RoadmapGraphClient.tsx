@@ -2,8 +2,12 @@
 
 import dynamic from 'next/dynamic';
 import type { RoadmapNode, RoadmapEdge } from '@/lib/types';
+import GraphSkeleton from './GraphSkeleton';
 
-const RoadmapGraph = dynamic(() => import('@/components/RoadmapGraph'), { ssr: false });
+const RoadmapGraph = dynamic(() => import('@/components/RoadmapGraph'), {
+  ssr: false,
+  loading: () => <GraphSkeleton />,
+});
 
 interface Props {
   nodes: RoadmapNode[];

@@ -11,6 +11,21 @@ interface Props {
   resource: Resource;
 }
 
+function StarRating({ rating }: { rating: number }) {
+  const full = Math.floor(rating);
+  const half = rating % 1 >= 0.5;
+  return (
+    <span className="flex items-center gap-0.5 text-amber-400 text-xs">
+      {Array.from({ length: 5 }, (_, i) => {
+        if (i < full) return <span key={i}>★</span>;
+        if (i === full && half) return <span key={i} className="opacity-50">★</span>;
+        return <span key={i} className="opacity-20">★</span>;
+      })}
+      <span className="ml-1 text-gray-500">{rating.toFixed(1)}</span>
+    </span>
+  );
+}
+
 export default function ResourceCard({ resource }: Props) {
   const domain = new URL(resource.url).hostname.replace('www.', '');
 
@@ -26,6 +41,11 @@ export default function ResourceCard({ resource }: Props) {
         <p className="mt-1 text-xs text-gray-500">
           {typeIcons[resource.type]} {resource.type} · {domain}
         </p>
+        {resource.rating != null && (
+          <div className="mt-1">
+            <StarRating rating={resource.rating} />
+          </div>
+        )}
       </div>
       <div className="ml-4 flex items-center gap-3 flex-shrink-0">
         {resource.free ? (

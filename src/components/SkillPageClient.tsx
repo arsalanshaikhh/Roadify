@@ -34,7 +34,14 @@ export default function SkillPageClient({ skill, from }: Props) {
         ← {backLabel}
       </Link>
 
-      <h1 className="mb-2 text-2xl font-bold text-white">{skill.title}</h1>
+      <div className="mb-2 flex items-start justify-between gap-4">
+        <h1 className="text-2xl font-bold text-white">{skill.title}</h1>
+        {skill.estimatedHours != null && (
+          <span className="mt-1 flex-shrink-0 rounded-full border border-gray-700 px-3 py-0.5 text-xs text-gray-400">
+            ~{skill.estimatedHours}h to learn
+          </span>
+        )}
+      </div>
       <p className="mb-6 text-gray-400">{skill.description}</p>
 
       {skill.topics.length > 0 && (

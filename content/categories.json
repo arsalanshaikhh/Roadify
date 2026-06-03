@@ -1,0 +1,5 @@
+[
+  { "id": "software", "label": "Software Engineering", "color": "indigo" },
+  { "id": "data", "label": "Data", "color": "sky" },
+  { "id": "ai", "label": "AI & Machine Learning", "color": "emerald" }
+]

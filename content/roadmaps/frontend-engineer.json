@@ -1,0 +1,15 @@
+{
+  "id": "frontend-engineer",
+  "title": "Frontend Engineer",
+  "category": "software",
+  "description": "Build interactive user interfaces for the web",
+  "nodes": [
+    { "id": "html-css", "label": "HTML & CSS", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "javascript", "label": "JavaScript", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "react", "label": "React", "required": true, "phase": "core", "position": { "x": 250, "y": 200 } }
+  ],
+  "edges": [
+    { "source": "html-css", "target": "javascript" },
+    { "source": "javascript", "target": "react" }
+  ]
+}

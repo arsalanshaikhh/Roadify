@@ -9,13 +9,13 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | DevRoadmap',
-    default: 'DevRoadmap — Find your learning path',
+    template: '%s | Roadify',
+    default: 'Roadify — Find your learning path',
   },
   description:
     'Curated learning roadmaps for software engineering, data science, and AI roles — with free resources for every skill.',
   openGraph: {
-    siteName: 'DevRoadmap',
+    siteName: 'Roadify',
     type: 'website',
   },
   twitter: {

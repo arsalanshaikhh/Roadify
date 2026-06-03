@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
-export const alt = 'DevRoadmap — Find your learning path';
+export const alt = 'Roadify — Find your learning path';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -37,7 +37,7 @@ export default function Image() {
             letterSpacing: '-2px',
           }}
         >
-          DevRoadmap
+          Roadify
         </div>
         <div style={{ color: '#94a3b8', fontSize: 32, marginTop: 20 }}>
           Find your learning path

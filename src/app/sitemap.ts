@@ -3,7 +3,7 @@ import { getAllRoadmaps, getAllSkillSlugs } from '@/lib/content';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://devroadmap.vercel.app';
+    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://roadify.vercel.app';
 
   const roadmapEntries = getAllRoadmaps().map((r) => ({
     url: `${baseUrl}/roadmap/${r.id}`,

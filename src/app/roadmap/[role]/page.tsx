@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getRoadmap, getAllRoadmaps } from '@/lib/content';
 import TopicsSidebar from '@/components/TopicsSidebar';
@@ -9,6 +10,20 @@ interface Props {
 
 export function generateStaticParams() {
   return getAllRoadmaps().map((r) => ({ role: r.id }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { role } = await params;
+  const roadmap = getRoadmap(role);
+  if (!roadmap) return {};
+  return {
+    title: roadmap.title,
+    description: roadmap.description,
+    openGraph: {
+      title: roadmap.title,
+      description: roadmap.description,
+    },
+  };
 }
 
 export default async function RoadmapPage({ params }: Props) {

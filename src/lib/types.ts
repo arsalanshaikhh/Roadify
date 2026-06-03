@@ -31,6 +31,7 @@ export interface Resource {
   url: string;
   type: 'docs' | 'video' | 'course' | 'article';
   free: boolean;
+  rating?: number;
 }
 
 export interface SkillFrontmatter {
@@ -39,9 +40,17 @@ export interface SkillFrontmatter {
   topics: string[];
   prerequisites: string[];
   resources: Resource[];
+  estimatedHours?: number;
 }
 
 export interface Skill extends SkillFrontmatter {
   slug: string;
   content: string;
+}
+
+export interface RoadmapStats {
+  skillCount: number;
+  freeResourceCount: number;
+  paidResourceCount: number;
+  estimatedHours: number;
 }

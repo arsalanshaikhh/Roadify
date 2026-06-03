@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import type { Roadmap, Skill, SkillFrontmatter, Category } from './types';
+import type { Roadmap, Skill, SkillFrontmatter, Category, RoadmapStats } from './types';
 
 const contentDir = path.join(process.cwd(), 'content');
 
@@ -45,4 +45,22 @@ export function getAllSkillSlugs(): string[] {
     .readdirSync(dir)
     .filter((f) => f.endsWith('.mdx'))
     .map((f) => f.replace('.mdx', ''));
+}
+
+export function getRoadmapStats(roadmap: Roadmap): RoadmapStats {
+  let freeResourceCount = 0;
+  let paidResourceCount = 0;
+  let estimatedHours = 0;
+
+  for (const node of roadmap.nodes) {
+    const skill = getSkill(node.id);
+    if (!skill) continue;
+    for (const resource of skill.resources) {
+      if (resource.free) freeResourceCount++;
+      else paidResourceCount++;
+    }
+    if (skill.estimatedHours) estimatedHours += skill.estimatedHours;
+  }
+
+  return { skillCount: roadmap.nodes.length, freeResourceCount, paidResourceCount, estimatedHours };
 }

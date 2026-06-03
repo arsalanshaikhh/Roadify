@@ -88,3 +88,34 @@ describe('parseRoadmapContent', () => {
     expect(roadmap.edges[0]).toEqual({ source: 'javascript', target: 'react' });
   });
 });
+
+import { getRoadmapStats } from './content';
+import type { Roadmap } from './types';
+
+const TEST_ROADMAP: Roadmap = {
+  id: 'frontend-engineer',
+  title: 'Frontend Engineer',
+  category: 'software',
+  description: 'Test',
+  nodes: [
+    { id: 'html-css', label: 'HTML & CSS', required: true, phase: 'foundation', position: { x: 0, y: 0 } },
+  ],
+  edges: [],
+};
+
+describe('getRoadmapStats', () => {
+  it('returns skillCount equal to node count', () => {
+    const stats = getRoadmapStats(TEST_ROADMAP);
+    expect(stats.skillCount).toBe(1);
+  });
+
+  it('returns non-negative freeResourceCount', () => {
+    const stats = getRoadmapStats(TEST_ROADMAP);
+    expect(stats.freeResourceCount).toBeGreaterThanOrEqual(0);
+  });
+
+  it('returns estimatedHours as a number', () => {
+    const stats = getRoadmapStats(TEST_ROADMAP);
+    expect(typeof stats.estimatedHours).toBe('number');
+  });
+});

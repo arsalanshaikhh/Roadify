@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ThemeToggle from './ThemeToggle';
 
 export default function Navbar() {
   return (
@@ -7,16 +8,19 @@ export default function Navbar() {
         <Link href="/" className="text-lg font-bold text-white">
           Roadify
         </Link>
-        <div className="flex gap-6 text-sm text-gray-400">
-          <Link href="/#software" className="hover:text-white transition-colors">
-            Software
-          </Link>
-          <Link href="/#data" className="hover:text-white transition-colors">
-            Data
-          </Link>
-          <Link href="/#ai" className="hover:text-white transition-colors">
-            AI & ML
-          </Link>
+        <div className="flex items-center gap-4">
+          <div className="flex gap-6 text-sm text-gray-400">
+            <Link href="/#software" className="hover:text-white transition-colors">
+              Software
+            </Link>
+            <Link href="/#data" className="hover:text-white transition-colors">
+              Data
+            </Link>
+            <Link href="/#ai" className="hover:text-white transition-colors">
+              AI & ML
+            </Link>
+          </div>
+          <ThemeToggle />
         </div>
       </div>
     </nav>

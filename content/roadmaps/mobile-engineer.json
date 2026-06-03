@@ -1,0 +1,22 @@
+{
+  "id": "mobile-engineer",
+  "title": "Mobile Engineer",
+  "category": "software",
+  "description": "Build native and cross-platform mobile apps for iOS and Android",
+  "nodes": [
+    { "id": "javascript", "label": "JavaScript", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "react", "label": "React", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "react-native", "label": "React Native", "required": true, "phase": "core", "position": { "x": 100, "y": 220 } },
+    { "id": "flutter", "label": "Flutter", "required": false, "phase": "core", "position": { "x": 400, "y": 220 } },
+    { "id": "mobile-ux", "label": "Mobile UX Patterns", "required": true, "phase": "core", "position": { "x": 250, "y": 340 } },
+    { "id": "app-store", "label": "App Store Deployment", "required": true, "phase": "advanced", "position": { "x": 250, "y": 460 } }
+  ],
+  "edges": [
+    { "source": "javascript", "target": "react" },
+    { "source": "react", "target": "react-native" },
+    { "source": "react", "target": "flutter" },
+    { "source": "react-native", "target": "mobile-ux" },
+    { "source": "flutter", "target": "mobile-ux" },
+    { "source": "mobile-ux", "target": "app-store" }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "qa-engineer",
+  "title": "QA / Testing Engineer",
+  "category": "software",
+  "description": "Ensure software quality through manual and automated testing strategies",
+  "nodes": [
+    { "id": "testing-fundamentals", "label": "Testing Fundamentals", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "javascript", "label": "JavaScript", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "qa-testing", "label": "Test Automation", "required": true, "phase": "core", "position": { "x": 100, "y": 220 } },
+    { "id": "selenium", "label": "Selenium / Playwright", "required": true, "phase": "core", "position": { "x": 400, "y": 220 } },
+    { "id": "ci-cd", "label": "CI/CD Integration", "required": false, "phase": "advanced", "position": { "x": 250, "y": 340 } }
+  ],
+  "edges": [
+    { "source": "testing-fundamentals", "target": "javascript" },
+    { "source": "javascript", "target": "qa-testing" },
+    { "source": "javascript", "target": "selenium" },
+    { "source": "qa-testing", "target": "ci-cd" },
+    { "source": "selenium", "target": "ci-cd" }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "blockchain-developer",
+  "title": "Blockchain Developer",
+  "category": "software",
+  "description": "Build decentralized applications and smart contracts on blockchain platforms",
+  "nodes": [
+    { "id": "javascript", "label": "JavaScript", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "solidity", "label": "Solidity", "required": true, "phase": "core", "position": { "x": 100, "y": 120 } },
+    { "id": "web3", "label": "Web3 & DApps", "required": true, "phase": "core", "position": { "x": 400, "y": 120 } },
+    { "id": "smart-contracts", "label": "Smart Contract Security", "required": true, "phase": "advanced", "position": { "x": 250, "y": 260 } }
+  ],
+  "edges": [
+    { "source": "javascript", "target": "solidity" },
+    { "source": "javascript", "target": "web3" },
+    { "source": "solidity", "target": "smart-contracts" },
+    { "source": "web3", "target": "smart-contracts" }
+  ]
+}

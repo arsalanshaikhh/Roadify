@@ -1,0 +1,19 @@
+{
+  "id": "ux-designer",
+  "title": "UX Designer",
+  "category": "software",
+  "description": "Design intuitive user experiences through research, prototyping, and design systems",
+  "nodes": [
+    { "id": "user-research", "label": "User Research", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "figma", "label": "Figma", "required": true, "phase": "core", "position": { "x": 100, "y": 120 } },
+    { "id": "design-systems", "label": "Design Systems", "required": true, "phase": "core", "position": { "x": 400, "y": 120 } },
+    { "id": "accessibility", "label": "Accessibility (a11y)", "required": true, "phase": "advanced", "position": { "x": 100, "y": 260 } },
+    { "id": "html-css", "label": "HTML & CSS basics", "required": false, "phase": "advanced", "position": { "x": 400, "y": 260 } }
+  ],
+  "edges": [
+    { "source": "user-research", "target": "figma" },
+    { "source": "user-research", "target": "design-systems" },
+    { "source": "figma", "target": "accessibility" },
+    { "source": "design-systems", "target": "html-css" }
+  ]
+}

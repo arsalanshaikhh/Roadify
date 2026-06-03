@@ -1,0 +1,20 @@
+{
+  "id": "product-manager",
+  "title": "Product Manager",
+  "category": "software",
+  "description": "Define product vision, work with engineering teams, and ship products users love",
+  "nodes": [
+    { "id": "product-strategy", "label": "Product Strategy", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "user-research", "label": "User Research", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "data-visualization", "label": "Data & Analytics", "required": true, "phase": "core", "position": { "x": 100, "y": 220 } },
+    { "id": "figma", "label": "Wireframing (Figma)", "required": true, "phase": "core", "position": { "x": 400, "y": 220 } },
+    { "id": "sql", "label": "SQL for PMs", "required": false, "phase": "advanced", "position": { "x": 250, "y": 340 } }
+  ],
+  "edges": [
+    { "source": "product-strategy", "target": "user-research" },
+    { "source": "user-research", "target": "data-visualization" },
+    { "source": "user-research", "target": "figma" },
+    { "source": "data-visualization", "target": "sql" },
+    { "source": "figma", "target": "sql" }
+  ]
+}

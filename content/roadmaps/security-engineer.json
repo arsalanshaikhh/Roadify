@@ -1,0 +1,20 @@
+{
+  "id": "security-engineer",
+  "title": "Security Engineer",
+  "category": "software",
+  "description": "Protect systems and data — vulnerability assessment, ethical hacking, and security architecture",
+  "nodes": [
+    { "id": "linux", "label": "Linux & Shell", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "networking", "label": "Networking Fundamentals", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "cybersecurity-fundamentals", "label": "Security Fundamentals", "required": true, "phase": "core", "position": { "x": 100, "y": 220 } },
+    { "id": "penetration-testing", "label": "Penetration Testing", "required": true, "phase": "core", "position": { "x": 400, "y": 220 } },
+    { "id": "cloud", "label": "Cloud Security", "required": false, "phase": "advanced", "position": { "x": 250, "y": 340 } }
+  ],
+  "edges": [
+    { "source": "linux", "target": "networking" },
+    { "source": "networking", "target": "cybersecurity-fundamentals" },
+    { "source": "networking", "target": "penetration-testing" },
+    { "source": "cybersecurity-fundamentals", "target": "cloud" },
+    { "source": "penetration-testing", "target": "cloud" }
+  ]
+}

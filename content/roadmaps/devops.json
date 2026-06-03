@@ -1,0 +1,24 @@
+{
+  "id": "devops",
+  "title": "DevOps / Cloud Engineer",
+  "category": "software",
+  "description": "Automate infrastructure, deployments, and operations for software teams",
+  "nodes": [
+    { "id": "linux", "label": "Linux & Shell", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "git", "label": "Git & GitHub", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "docker", "label": "Docker", "required": true, "phase": "core", "position": { "x": 100, "y": 220 } },
+    { "id": "ci-cd", "label": "CI/CD", "required": true, "phase": "core", "position": { "x": 400, "y": 220 } },
+    { "id": "kubernetes", "label": "Kubernetes", "required": false, "phase": "advanced", "position": { "x": 100, "y": 340 } },
+    { "id": "cloud", "label": "Cloud (AWS/GCP)", "required": false, "phase": "advanced", "position": { "x": 400, "y": 340 } },
+    { "id": "monitoring", "label": "Monitoring", "required": false, "phase": "advanced", "position": { "x": 250, "y": 460 } }
+  ],
+  "edges": [
+    { "source": "linux", "target": "git" },
+    { "source": "git", "target": "docker" },
+    { "source": "git", "target": "ci-cd" },
+    { "source": "docker", "target": "kubernetes" },
+    { "source": "ci-cd", "target": "cloud" },
+    { "source": "kubernetes", "target": "monitoring" },
+    { "source": "cloud", "target": "monitoring" }
+  ]
+}

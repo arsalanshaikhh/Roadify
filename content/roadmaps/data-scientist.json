@@ -1,0 +1,24 @@
+{
+  "id": "data-scientist",
+  "title": "Data Scientist",
+  "category": "data",
+  "description": "Extract insights from data using statistics, machine learning, and visualization",
+  "nodes": [
+    { "id": "python", "label": "Python", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "statistics", "label": "Statistics & Math", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "pandas-numpy", "label": "Pandas & NumPy", "required": true, "phase": "core", "position": { "x": 100, "y": 220 } },
+    { "id": "data-visualization", "label": "Data Visualization", "required": true, "phase": "core", "position": { "x": 400, "y": 220 } },
+    { "id": "machine-learning", "label": "Machine Learning", "required": true, "phase": "core", "position": { "x": 250, "y": 340 } },
+    { "id": "deep-learning", "label": "Deep Learning", "required": false, "phase": "advanced", "position": { "x": 100, "y": 460 } },
+    { "id": "sql", "label": "SQL", "required": true, "phase": "foundation", "position": { "x": 500, "y": 100 } }
+  ],
+  "edges": [
+    { "source": "python", "target": "statistics" },
+    { "source": "python", "target": "pandas-numpy" },
+    { "source": "statistics", "target": "pandas-numpy" },
+    { "source": "pandas-numpy", "target": "data-visualization" },
+    { "source": "pandas-numpy", "target": "machine-learning" },
+    { "source": "machine-learning", "target": "deep-learning" },
+    { "source": "sql", "target": "pandas-numpy" }
+  ]
+}

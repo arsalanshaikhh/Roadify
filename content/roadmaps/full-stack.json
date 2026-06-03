@@ -1,0 +1,24 @@
+{
+  "id": "full-stack",
+  "title": "Full Stack Engineer",
+  "category": "software",
+  "description": "Build complete web applications from frontend to backend",
+  "nodes": [
+    { "id": "html-css", "label": "HTML & CSS", "required": true, "phase": "foundation", "position": { "x": 100, "y": 0 } },
+    { "id": "javascript", "label": "JavaScript", "required": true, "phase": "foundation", "position": { "x": 400, "y": 0 } },
+    { "id": "react", "label": "React", "required": true, "phase": "core", "position": { "x": 100, "y": 120 } },
+    { "id": "nodejs", "label": "Node.js", "required": true, "phase": "core", "position": { "x": 400, "y": 120 } },
+    { "id": "databases", "label": "Databases", "required": true, "phase": "core", "position": { "x": 250, "y": 240 } },
+    { "id": "rest-apis", "label": "REST APIs", "required": true, "phase": "core", "position": { "x": 250, "y": 360 } },
+    { "id": "docker", "label": "Docker", "required": false, "phase": "advanced", "position": { "x": 250, "y": 480 } }
+  ],
+  "edges": [
+    { "source": "html-css", "target": "react" },
+    { "source": "javascript", "target": "react" },
+    { "source": "javascript", "target": "nodejs" },
+    { "source": "react", "target": "databases" },
+    { "source": "nodejs", "target": "databases" },
+    { "source": "databases", "target": "rest-apis" },
+    { "source": "rest-apis", "target": "docker" }
+  ]
+}

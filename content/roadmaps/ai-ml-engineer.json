@@ -1,0 +1,24 @@
+{
+  "id": "ai-ml-engineer",
+  "title": "AI / ML Engineer",
+  "category": "ai",
+  "description": "Build and deploy machine learning models and AI-powered systems at scale",
+  "nodes": [
+    { "id": "python", "label": "Python", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "machine-learning", "label": "Machine Learning", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "deep-learning", "label": "Deep Learning", "required": true, "phase": "core", "position": { "x": 100, "y": 220 } },
+    { "id": "llms", "label": "LLMs & Transformers", "required": true, "phase": "core", "position": { "x": 400, "y": 220 } },
+    { "id": "mlops", "label": "MLOps", "required": true, "phase": "core", "position": { "x": 250, "y": 340 } },
+    { "id": "vector-databases", "label": "Vector Databases", "required": false, "phase": "advanced", "position": { "x": 100, "y": 460 } },
+    { "id": "ai-agents", "label": "AI Agents", "required": false, "phase": "advanced", "position": { "x": 400, "y": 460 } }
+  ],
+  "edges": [
+    { "source": "python", "target": "machine-learning" },
+    { "source": "machine-learning", "target": "deep-learning" },
+    { "source": "machine-learning", "target": "llms" },
+    { "source": "deep-learning", "target": "mlops" },
+    { "source": "llms", "target": "mlops" },
+    { "source": "mlops", "target": "vector-databases" },
+    { "source": "mlops", "target": "ai-agents" }
+  ]
+}

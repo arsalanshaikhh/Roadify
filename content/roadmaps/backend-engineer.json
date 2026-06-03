@@ -1,0 +1,24 @@
+{
+  "id": "backend-engineer",
+  "title": "Backend Engineer",
+  "category": "software",
+  "description": "Build servers, APIs, and databases that power web applications",
+  "nodes": [
+    { "id": "javascript", "label": "JavaScript", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "nodejs", "label": "Node.js", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "databases", "label": "Databases", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "rest-apis", "label": "REST APIs", "required": true, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "authentication", "label": "Authentication", "required": true, "phase": "core", "position": { "x": 250, "y": 300 } },
+    { "id": "docker", "label": "Docker", "required": false, "phase": "advanced", "position": { "x": 100, "y": 400 } },
+    { "id": "testing-backend", "label": "Testing", "required": false, "phase": "advanced", "position": { "x": 400, "y": 400 } }
+  ],
+  "edges": [
+    { "source": "javascript", "target": "nodejs" },
+    { "source": "nodejs", "target": "databases" },
+    { "source": "nodejs", "target": "rest-apis" },
+    { "source": "databases", "target": "authentication" },
+    { "source": "rest-apis", "target": "authentication" },
+    { "source": "authentication", "target": "docker" },
+    { "source": "authentication", "target": "testing-backend" }
+  ]
+}

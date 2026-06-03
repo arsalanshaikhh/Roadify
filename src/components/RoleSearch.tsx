@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 import RoleCard from './RoleCard';
-import type { Roadmap, Category } from '@/lib/types';
+import type { Roadmap, Category, RoadmapStats } from '@/lib/types';
 
 interface Props {
   roadmaps: Roadmap[];
   categories: Category[];
+  statsMap: Record<string, RoadmapStats>;
 }
 
 const labelColorMap: Record<string, string> = {
@@ -15,7 +16,7 @@ const labelColorMap: Record<string, string> = {
   emerald: 'text-emerald-400',
 };
 
-export default function RoleSearch({ roadmaps, categories }: Props) {
+export default function RoleSearch({ roadmaps, categories, statsMap }: Props) {
   const [query, setQuery] = useState('');
 
   const filtered = query.trim()
@@ -46,7 +47,12 @@ export default function RoleSearch({ roadmaps, categories }: Props) {
             </h2>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {roleCards.map((roadmap) => (
-                <RoleCard key={roadmap.id} roadmap={roadmap} categoryColor={category.color} />
+                <RoleCard
+                  key={roadmap.id}
+                  roadmap={roadmap}
+                  categoryColor={category.color}
+                  stats={statsMap[roadmap.id] ?? { skillCount: roadmap.nodes.length, freeResourceCount: 0, paidResourceCount: 0, estimatedHours: 0 }}
+                />
               ))}
             </div>
           </section>

@@ -54,7 +54,7 @@ export default function RoleSearch({ roadmaps, categories }: Props) {
       })}
 
       {filtered.length === 0 && (
-        <p className="text-center text-gray-500">No roles match "{query}".</p>
+        <p className="text-center text-gray-500">No roles match &ldquo;{query}&rdquo;.</p>
       )}
     </>
   );

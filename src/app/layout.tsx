@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import ThemeProvider from '@/components/ThemeProvider';
+import { ProgressProvider } from '@/context/ProgressContext';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
@@ -29,10 +30,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} min-h-screen`}>
         <ThemeProvider>
-          <Navbar />
-          {children}
-          <Analytics />
-          <SpeedInsights />
+          <ProgressProvider>
+            <Navbar />
+            {children}
+            <Analytics />
+            <SpeedInsights />
+          </ProgressProvider>
         </ThemeProvider>
       </body>
     </html>

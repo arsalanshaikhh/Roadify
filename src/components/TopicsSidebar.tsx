@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useProgress } from '@/context/ProgressContext';
 import type { RoadmapNode } from '@/lib/types';
 
 interface Props {
@@ -23,10 +24,30 @@ const phaseLabelColors: Record<string, string> = {
 
 export default function TopicsSidebar({ nodes }: Props) {
   const [isOpen, setIsOpen] = useState(false);
+  const { isComplete } = useProgress();
+
+  const completedCount = nodes.filter((n) => isComplete(n.id)).length;
+  const progressPct = nodes.length > 0 ? Math.round((completedCount / nodes.length) * 100) : 0;
+
+  const progressBar = (
+    <div className="mb-4">
+      <div className="flex justify-between text-xs text-gray-500 mb-1">
+        <span>Progress</span>
+        <span>{completedCount}/{nodes.length}</span>
+      </div>
+      <div className="h-1.5 w-full rounded-full bg-gray-800">
+        <div
+          className="h-1.5 rounded-full bg-indigo-500 transition-all"
+          style={{ width: `${progressPct}%` }}
+        />
+      </div>
+    </div>
+  );
 
   const content = (
     <div className="space-y-4">
       <p className="text-xs font-bold uppercase tracking-widest text-gray-500">All Topics</p>
+      {progressBar}
       {phases.map((phase) => {
         const phaseNodes = nodes.filter((n) => n.phase === phase);
         if (phaseNodes.length === 0) return null;
@@ -38,16 +59,18 @@ export default function TopicsSidebar({ nodes }: Props) {
             <ul className="space-y-1">
               {phaseNodes.map((node) => (
                 <li key={node.id} className="flex items-center justify-between">
-                  <span className="text-sm text-gray-300">{node.label}</span>
-                  {node.required ? (
-                    <span className="rounded bg-red-900/30 px-1.5 py-0.5 text-xs text-red-400">
-                      req
-                    </span>
-                  ) : (
-                    <span className="rounded bg-sky-900/30 px-1.5 py-0.5 text-xs text-sky-400">
-                      opt
-                    </span>
-                  )}
+                  <span className={`text-sm ${isComplete(node.id) ? 'text-gray-500 line-through' : 'text-gray-300'}`}>
+                    {node.label}
+                  </span>
+                  <div className="flex items-center gap-1">
+                    {isComplete(node.id) ? (
+                      <span className="text-emerald-400 text-xs">✓</span>
+                    ) : node.required ? (
+                      <span className="rounded bg-red-900/30 px-1.5 py-0.5 text-xs text-red-400">req</span>
+                    ) : (
+                      <span className="rounded bg-sky-900/30 px-1.5 py-0.5 text-xs text-sky-400">opt</span>
+                    )}
+                  </div>
                 </li>
               ))}
             </ul>
@@ -59,18 +82,16 @@ export default function TopicsSidebar({ nodes }: Props) {
 
   return (
     <>
-      {/* Mobile toggle */}
       <div className="border-b border-gray-800 p-4 lg:hidden">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="flex items-center gap-2 text-sm text-gray-400"
         >
           Topics {isOpen ? '▲' : '▾'}
+          <span className="ml-2 text-xs text-indigo-400">{completedCount}/{nodes.length}</span>
         </button>
         {isOpen && <div className="mt-4">{content}</div>}
       </div>
-
-      {/* Desktop sidebar */}
       <aside className="hidden w-52 flex-shrink-0 border-r border-gray-800 p-5 lg:block">
         {content}
       </aside>

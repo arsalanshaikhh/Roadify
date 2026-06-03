@@ -12,6 +12,7 @@ import {
 import '@xyflow/react/dist/style.css';
 import { useRouter } from 'next/navigation';
 import SkillNode from './SkillNode';
+import { useProgress } from '@/context/ProgressContext';
 import type { RoadmapNode, RoadmapEdge } from '@/lib/types';
 
 const nodeTypes = { skill: SkillNode };
@@ -24,12 +25,13 @@ interface Props {
 
 export default function RoadmapGraph({ nodes, edges, fromRole }: Props) {
   const router = useRouter();
+  const { isComplete } = useProgress();
 
   const flowNodes: Node[] = nodes.map((n) => ({
     id: n.id,
     type: 'skill',
     position: n.position,
-    data: { label: n.label, required: n.required, phase: n.phase },
+    data: { label: n.label, required: n.required, phase: n.phase, isComplete: isComplete(n.id) },
   }));
 
   const flowEdges: Edge[] = edges.map((e, i) => ({

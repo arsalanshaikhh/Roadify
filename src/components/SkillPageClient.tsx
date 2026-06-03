@@ -5,6 +5,7 @@ import Link from 'next/link';
 import TopicsChips from '@/components/TopicsChips';
 import ResourceCard from '@/components/ResourceCard';
 import ResourceFilter from '@/components/ResourceFilter';
+import { useProgress } from '@/context/ProgressContext';
 import type { Skill, Resource } from '@/lib/types';
 
 type Filter = 'all' | 'free' | 'paid';
@@ -16,6 +17,8 @@ interface Props {
 
 export default function SkillPageClient({ skill, from }: Props) {
   const [filter, setFilter] = useState<Filter>('all');
+  const { isComplete, toggle } = useProgress();
+  const done = isComplete(skill.slug);
 
   const filteredResources = skill.resources.filter((r: Resource) => {
     if (filter === 'free') return r.free;
@@ -30,9 +33,21 @@ export default function SkillPageClient({ skill, from }: Props) {
 
   return (
     <main className="mx-auto max-w-2xl px-6 py-10">
-      <Link href={backHref} className="mb-6 block text-sm text-gray-500 hover:text-gray-300">
-        ← {backLabel}
-      </Link>
+      <div className="flex items-center justify-between mb-6">
+        <Link href={backHref} className="text-sm text-gray-500 hover:text-gray-300">
+          ← {backLabel}
+        </Link>
+        <button
+          onClick={() => toggle(skill.slug)}
+          className={`flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm transition-colors ${
+            done
+              ? 'border-emerald-700 bg-emerald-900/30 text-emerald-400 hover:bg-emerald-900/50'
+              : 'border-gray-700 text-gray-400 hover:border-gray-500 hover:text-white'
+          }`}
+        >
+          {done ? '✓ Completed' : 'Mark complete'}
+        </button>
+      </div>
 
       <div className="mb-2 flex items-start justify-between gap-4">
         <h1 className="text-2xl font-bold text-white">{skill.title}</h1>

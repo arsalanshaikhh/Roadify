@@ -1,0 +1,21 @@
+{
+  "id": "data-engineer",
+  "title": "Data Engineer",
+  "category": "data",
+  "description": "Build pipelines and infrastructure that move, store, and transform data at scale",
+  "nodes": [
+    { "id": "python", "label": "Python", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "sql", "label": "SQL", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "data-pipelines", "label": "Data Pipelines", "required": true, "phase": "core", "position": { "x": 100, "y": 220 } },
+    { "id": "cloud-data", "label": "Cloud Data Warehouses", "required": true, "phase": "core", "position": { "x": 400, "y": 220 } },
+    { "id": "spark", "label": "Apache Spark", "required": false, "phase": "advanced", "position": { "x": 100, "y": 340 } },
+    { "id": "streaming", "label": "Stream Processing", "required": false, "phase": "advanced", "position": { "x": 400, "y": 340 } }
+  ],
+  "edges": [
+    { "source": "python", "target": "sql" },
+    { "source": "sql", "target": "data-pipelines" },
+    { "source": "sql", "target": "cloud-data" },
+    { "source": "data-pipelines", "target": "spark" },
+    { "source": "cloud-data", "target": "streaming" }
+  ]
+}

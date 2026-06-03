@@ -1,9 +1,7 @@
 import { notFound } from 'next/navigation';
-import dynamic from 'next/dynamic';
 import { getRoadmap, getAllRoadmaps } from '@/lib/content';
 import TopicsSidebar from '@/components/TopicsSidebar';
-
-const RoadmapGraph = dynamic(() => import('@/components/RoadmapGraph'), { ssr: false });
+import RoadmapGraphClient from '@/components/RoadmapGraphClient';
 
 interface Props {
   params: Promise<{ role: string }>;
@@ -29,7 +27,7 @@ export default async function RoadmapPage({ params }: Props) {
           </p>
         </div>
         <div className="flex-1">
-          <RoadmapGraph
+          <RoadmapGraphClient
             nodes={roadmap.nodes}
             edges={roadmap.edges}
             fromRole={roadmap.id}

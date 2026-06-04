@@ -1,0 +1,24 @@
+{
+  "id": "forward-deployed-engineer",
+  "title": "Forward Deployed Engineer",
+  "category": "software",
+  "description": "Embed inside enterprise customers to deploy, integrate, and customize AI products — part engineer, part consultant, part founder",
+  "nodes": [
+    { "id": "python", "label": "Python", "required": true, "phase": "foundation", "position": { "x": 150, "y": 0 } },
+    { "id": "sql", "label": "SQL", "required": true, "phase": "foundation", "position": { "x": 350, "y": 0 } },
+    { "id": "rest-apis", "label": "REST APIs", "required": true, "phase": "core", "position": { "x": 150, "y": 100 } },
+    { "id": "cloud", "label": "Cloud Platforms", "required": true, "phase": "core", "position": { "x": 350, "y": 100 } },
+    { "id": "llms", "label": "LLMs & AI Integration", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "ai-agents", "label": "AI Agents", "required": false, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "fde-practices", "label": "FDE Practices", "required": true, "phase": "advanced", "position": { "x": 250, "y": 300 } }
+  ],
+  "edges": [
+    { "source": "python", "target": "rest-apis" },
+    { "source": "sql", "target": "rest-apis" },
+    { "source": "rest-apis", "target": "cloud" },
+    { "source": "rest-apis", "target": "llms" },
+    { "source": "cloud", "target": "ai-agents" },
+    { "source": "llms", "target": "fde-practices" },
+    { "source": "ai-agents", "target": "fde-practices" }
+  ]
+}

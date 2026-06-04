@@ -25,6 +25,17 @@ const ROLE_ICONS: Record<string, string> = {
   'game-developer': '🎮',
   'ar-vr-developer': '🥽',
   'embedded-engineer': '🔌',
+  'rust-developer': '🦀',
+  'go-developer': '🐹',
+  'cybersecurity-analyst': '🛡️',
+  'computer-vision-engineer': '👁️',
+  'nlp-engineer': '💬',
+  'database-administrator': '🗄️',
+  'robotics-engineer': '🤖',
+  'developer-advocate': '📣',
+  'fintech-developer': '💳',
+  'quantum-developer': '⚛️',
+  'forward-deployed-engineer': '🚀',
 };
 
 interface Props {

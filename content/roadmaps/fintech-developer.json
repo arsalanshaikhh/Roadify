@@ -1,0 +1,22 @@
+{
+  "id": "fintech-developer",
+  "title": "FinTech Developer",
+  "category": "software",
+  "description": "Build financial technology products — payment systems, banking APIs, trading platforms, and regulatory-compliant software",
+  "nodes": [
+    { "id": "javascript", "label": "JavaScript", "required": true, "phase": "foundation", "position": { "x": 150, "y": 0 } },
+    { "id": "python", "label": "Python", "required": false, "phase": "foundation", "position": { "x": 350, "y": 0 } },
+    { "id": "rest-apis", "label": "REST APIs", "required": true, "phase": "core", "position": { "x": 250, "y": 100 } },
+    { "id": "authentication", "label": "Authentication & Security", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "databases", "label": "Databases", "required": true, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "fintech-fundamentals", "label": "FinTech Fundamentals", "required": true, "phase": "advanced", "position": { "x": 250, "y": 300 } }
+  ],
+  "edges": [
+    { "source": "javascript", "target": "rest-apis" },
+    { "source": "python", "target": "rest-apis" },
+    { "source": "rest-apis", "target": "authentication" },
+    { "source": "rest-apis", "target": "databases" },
+    { "source": "authentication", "target": "fintech-fundamentals" },
+    { "source": "databases", "target": "fintech-fundamentals" }
+  ]
+}

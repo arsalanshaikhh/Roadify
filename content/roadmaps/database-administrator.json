@@ -1,0 +1,21 @@
+{
+  "id": "database-administrator",
+  "title": "Database Administrator",
+  "category": "data",
+  "description": "Design, manage, and optimize databases — performance tuning, backups, replication, and data security",
+  "nodes": [
+    { "id": "sql", "label": "SQL", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "databases", "label": "Databases", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "linux", "label": "Linux", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "database-administration", "label": "DBA Practices", "required": true, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "monitoring", "label": "Monitoring", "required": false, "phase": "advanced", "position": { "x": 100, "y": 300 } },
+    { "id": "cloud-data", "label": "Cloud Data Warehouses", "required": false, "phase": "advanced", "position": { "x": 400, "y": 300 } }
+  ],
+  "edges": [
+    { "source": "sql", "target": "databases" },
+    { "source": "databases", "target": "linux" },
+    { "source": "databases", "target": "database-administration" },
+    { "source": "linux", "target": "monitoring" },
+    { "source": "database-administration", "target": "cloud-data" }
+  ]
+}

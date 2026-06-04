@@ -1,0 +1,19 @@
+{
+  "id": "quantum-developer",
+  "title": "Quantum Computing Developer",
+  "category": "emerging",
+  "description": "Program quantum computers using Qiskit and Cirq — solve optimization, cryptography, and simulation problems",
+  "nodes": [
+    { "id": "python", "label": "Python", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "statistics", "label": "Statistics & Math", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "linux", "label": "Linux", "required": false, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "quantum-computing", "label": "Quantum Computing", "required": true, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "machine-learning", "label": "Machine Learning", "required": false, "phase": "advanced", "position": { "x": 250, "y": 300 } }
+  ],
+  "edges": [
+    { "source": "python", "target": "statistics" },
+    { "source": "statistics", "target": "linux" },
+    { "source": "statistics", "target": "quantum-computing" },
+    { "source": "quantum-computing", "target": "machine-learning" }
+  ]
+}

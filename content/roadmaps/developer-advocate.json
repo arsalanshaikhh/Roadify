@@ -1,0 +1,20 @@
+{
+  "id": "developer-advocate",
+  "title": "Developer Advocate",
+  "category": "software",
+  "description": "Bridge the gap between product and developers — create content, build demos, grow communities, and gather feedback",
+  "nodes": [
+    { "id": "git", "label": "Git & GitHub", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "rest-apis", "label": "REST APIs", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "javascript", "label": "JavaScript", "required": false, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "python", "label": "Python", "required": false, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "developer-relations", "label": "Developer Relations", "required": true, "phase": "core", "position": { "x": 250, "y": 300 } }
+  ],
+  "edges": [
+    { "source": "git", "target": "rest-apis" },
+    { "source": "rest-apis", "target": "javascript" },
+    { "source": "rest-apis", "target": "python" },
+    { "source": "javascript", "target": "developer-relations" },
+    { "source": "python", "target": "developer-relations" }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "robotics-engineer",
+  "title": "Robotics Engineer",
+  "category": "emerging",
+  "description": "Build autonomous robots — motion planning, sensor fusion, ROS 2, and real-time control systems",
+  "nodes": [
+    { "id": "python", "label": "Python", "required": true, "phase": "foundation", "position": { "x": 150, "y": 0 } },
+    { "id": "c-cpp", "label": "C / C++", "required": true, "phase": "foundation", "position": { "x": 350, "y": 0 } },
+    { "id": "linux", "label": "Linux", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "embedded-systems", "label": "Embedded Systems", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "ros", "label": "ROS 2", "required": true, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "machine-learning", "label": "Machine Learning", "required": false, "phase": "advanced", "position": { "x": 250, "y": 300 } }
+  ],
+  "edges": [
+    { "source": "python", "target": "linux" },
+    { "source": "c-cpp", "target": "linux" },
+    { "source": "linux", "target": "embedded-systems" },
+    { "source": "linux", "target": "ros" },
+    { "source": "embedded-systems", "target": "machine-learning" },
+    { "source": "ros", "target": "machine-learning" }
+  ]
+}

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 import ThemeProvider from '@/components/ThemeProvider';
 import { ProgressProvider } from '@/context/ProgressContext';
 import { SearchProvider } from '@/context/SearchContext';
@@ -66,6 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <SearchProvider items={searchItems}>
               <Navbar />
               {children}
+              <Footer />
               <Analytics />
               <SpeedInsights />
             </SearchProvider>

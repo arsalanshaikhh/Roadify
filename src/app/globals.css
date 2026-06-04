@@ -3,20 +3,25 @@
 :root {
   --bg-base: #f9fafb;
   --bg-surface: #ffffff;
+  --bg-elevated: #f3f4f6;
   --border: #e5e7eb;
   --text-primary: #111827;
   --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
 }
 
 .dark {
   --bg-base: #030712;
   --bg-surface: #111827;
+  --bg-elevated: #1f2937;
   --border: #1f2937;
   --text-primary: #f9fafb;
   --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
 }
 
 body {
   background-color: var(--bg-base);
   color: var(--text-primary);
+  transition: background-color 0.2s, color 0.2s;
 }

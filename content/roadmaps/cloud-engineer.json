@@ -1,0 +1,28 @@
+{
+  "id": "cloud-engineer",
+  "title": "Cloud Engineer",
+  "category": "software",
+  "description": "Design, deploy and manage scalable infrastructure on AWS, Azure, or GCP",
+  "nodes": [
+    { "id": "linux", "label": "Linux", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "networking", "label": "Networking", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "cloud", "label": "Cloud Platforms", "required": true, "phase": "core", "position": { "x": 250, "y": 200 } },
+    { "id": "docker", "label": "Docker", "required": true, "phase": "core", "position": { "x": 100, "y": 300 } },
+    { "id": "terraform", "label": "Terraform (IaC)", "required": true, "phase": "core", "position": { "x": 400, "y": 300 } },
+    { "id": "kubernetes", "label": "Kubernetes", "required": false, "phase": "advanced", "position": { "x": 100, "y": 400 } },
+    { "id": "cloud-security", "label": "Cloud Security", "required": false, "phase": "advanced", "position": { "x": 400, "y": 400 } },
+    { "id": "monitoring", "label": "Monitoring", "required": false, "phase": "advanced", "position": { "x": 250, "y": 500 } },
+    { "id": "ci-cd", "label": "CI/CD", "required": false, "phase": "advanced", "position": { "x": 550, "y": 300 } }
+  ],
+  "edges": [
+    { "source": "linux", "target": "networking" },
+    { "source": "networking", "target": "cloud" },
+    { "source": "cloud", "target": "docker" },
+    { "source": "cloud", "target": "terraform" },
+    { "source": "docker", "target": "kubernetes" },
+    { "source": "terraform", "target": "cloud-security" },
+    { "source": "kubernetes", "target": "monitoring" },
+    { "source": "cloud-security", "target": "monitoring" },
+    { "source": "cloud", "target": "ci-cd" }
+  ]
+}

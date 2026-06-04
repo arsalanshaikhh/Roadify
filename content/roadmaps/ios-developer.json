@@ -1,0 +1,22 @@
+{
+  "id": "ios-developer",
+  "title": "iOS Developer",
+  "category": "software",
+  "description": "Build native iPhone and iPad apps with Swift and SwiftUI for the Apple ecosystem",
+  "nodes": [
+    { "id": "swift", "label": "Swift", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "ios-fundamentals", "label": "iOS Fundamentals", "required": true, "phase": "core", "position": { "x": 250, "y": 100 } },
+    { "id": "swiftui", "label": "SwiftUI", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "firebase", "label": "Firebase", "required": false, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "testing-fundamentals", "label": "Testing", "required": false, "phase": "advanced", "position": { "x": 100, "y": 300 } },
+    { "id": "app-store", "label": "App Store Deployment", "required": true, "phase": "advanced", "position": { "x": 400, "y": 300 } }
+  ],
+  "edges": [
+    { "source": "swift", "target": "ios-fundamentals" },
+    { "source": "ios-fundamentals", "target": "swiftui" },
+    { "source": "ios-fundamentals", "target": "firebase" },
+    { "source": "swiftui", "target": "testing-fundamentals" },
+    { "source": "firebase", "target": "app-store" },
+    { "source": "testing-fundamentals", "target": "app-store" }
+  ]
+}

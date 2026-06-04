@@ -1,0 +1,22 @@
+{
+  "id": "android-developer",
+  "title": "Android Developer",
+  "category": "software",
+  "description": "Build native Android apps with Kotlin and Jetpack Compose for billions of devices",
+  "nodes": [
+    { "id": "kotlin", "label": "Kotlin", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "android-fundamentals", "label": "Android Fundamentals", "required": true, "phase": "core", "position": { "x": 250, "y": 100 } },
+    { "id": "jetpack-compose", "label": "Jetpack Compose", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "firebase", "label": "Firebase", "required": false, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "testing-fundamentals", "label": "Testing", "required": false, "phase": "advanced", "position": { "x": 100, "y": 300 } },
+    { "id": "app-store", "label": "Play Store Deployment", "required": true, "phase": "advanced", "position": { "x": 400, "y": 300 } }
+  ],
+  "edges": [
+    { "source": "kotlin", "target": "android-fundamentals" },
+    { "source": "android-fundamentals", "target": "jetpack-compose" },
+    { "source": "android-fundamentals", "target": "firebase" },
+    { "source": "jetpack-compose", "target": "testing-fundamentals" },
+    { "source": "firebase", "target": "app-store" },
+    { "source": "testing-fundamentals", "target": "app-store" }
+  ]
+}

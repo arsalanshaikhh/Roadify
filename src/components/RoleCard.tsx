@@ -15,6 +15,10 @@ const ROLE_ICONS: Record<string, string> = {
   'data-scientist': '📊',
   'ai-ml-engineer': '🤖',
   'data-engineer': '🛠️',
+  'cloud-engineer': '☁️',
+  'data-analyst': '📈',
+  'android-developer': '📲',
+  'ios-developer': '🍎',
 };
 
 interface Props {

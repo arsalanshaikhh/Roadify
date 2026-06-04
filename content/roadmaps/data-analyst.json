@@ -1,0 +1,25 @@
+{
+  "id": "data-analyst",
+  "title": "Data Analyst",
+  "category": "data",
+  "description": "Turn raw data into business insights using SQL, Python, and visualization tools",
+  "nodes": [
+    { "id": "sql", "label": "SQL", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "excel-bi", "label": "Excel & BI Tools", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "statistics", "label": "Statistics", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "python", "label": "Python", "required": false, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "pandas-numpy", "label": "Pandas & NumPy", "required": false, "phase": "core", "position": { "x": 400, "y": 300 } },
+    { "id": "data-visualization", "label": "Data Visualization", "required": true, "phase": "core", "position": { "x": 100, "y": 300 } },
+    { "id": "tableau", "label": "Tableau", "required": false, "phase": "advanced", "position": { "x": 100, "y": 400 } },
+    { "id": "power-bi", "label": "Power BI", "required": false, "phase": "advanced", "position": { "x": 400, "y": 400 } }
+  ],
+  "edges": [
+    { "source": "sql", "target": "excel-bi" },
+    { "source": "excel-bi", "target": "statistics" },
+    { "source": "excel-bi", "target": "python" },
+    { "source": "python", "target": "pandas-numpy" },
+    { "source": "statistics", "target": "data-visualization" },
+    { "source": "data-visualization", "target": "tableau" },
+    { "source": "pandas-numpy", "target": "power-bi" }
+  ]
+}

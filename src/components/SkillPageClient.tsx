@@ -6,6 +6,8 @@ import TopicsChips from '@/components/TopicsChips';
 import ResourceCard from '@/components/ResourceCard';
 import ResourceFilter from '@/components/ResourceFilter';
 import { useProgress } from '@/context/ProgressContext';
+import { useToast } from '@/context/ToastContext';
+import BackToTop from '@/components/BackToTop';
 import type { Skill, Resource } from '@/lib/types';
 
 type Filter = 'all' | 'free' | 'paid';
@@ -18,7 +20,17 @@ interface Props {
 export default function SkillPageClient({ skill, from }: Props) {
   const [filter, setFilter] = useState<Filter>('all');
   const { isComplete, toggle } = useProgress();
+  const { showToast } = useToast();
   const done = isComplete(skill.slug);
+
+  const handleToggle = () => {
+    const willBeComplete = !done;
+    toggle(skill.slug);
+    showToast(
+      willBeComplete ? `✓ ${skill.title} marked as complete!` : `${skill.title} unmarked`,
+      willBeComplete ? 'success' : 'info'
+    );
+  };
 
   const filteredResources = skill.resources.filter((r: Resource) => {
     if (filter === 'free') return r.free;
@@ -32,13 +44,14 @@ export default function SkillPageClient({ skill, from }: Props) {
     : 'All Roadmaps';
 
   return (
+    <>
     <main className="mx-auto max-w-2xl px-6 py-10">
       <div className="flex items-center justify-between mb-6">
         <Link href={backHref} className="text-sm text-gray-500 hover:text-gray-300">
           ← {backLabel}
         </Link>
         <button
-          onClick={() => toggle(skill.slug)}
+          onClick={handleToggle}
           className={`flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm transition-colors ${
             done
               ? 'border-emerald-700 bg-emerald-900/30 text-emerald-400 hover:bg-emerald-900/50'
@@ -101,5 +114,7 @@ export default function SkillPageClient({ skill, from }: Props) {
         </div>
       </section>
     </main>
+    <BackToTop />
+    </>
   );
 }

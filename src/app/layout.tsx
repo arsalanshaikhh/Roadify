@@ -6,6 +6,8 @@ import Footer from '@/components/Footer';
 import ThemeProvider from '@/components/ThemeProvider';
 import { ProgressProvider } from '@/context/ProgressContext';
 import { SearchProvider } from '@/context/SearchContext';
+import { ToastProvider } from '@/context/ToastContext';
+import Toast from '@/components/Toast';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { getAllRoadmaps, getAllSkillSlugs, getSkill } from '@/lib/content';
@@ -63,15 +65,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} min-h-screen`}>
         <ThemeProvider>
-          <ProgressProvider>
-            <SearchProvider items={searchItems}>
-              <Navbar />
-              {children}
-              <Footer />
-              <Analytics />
-              <SpeedInsights />
-            </SearchProvider>
-          </ProgressProvider>
+          <ToastProvider>
+            <ProgressProvider>
+              <SearchProvider items={searchItems}>
+                <Navbar />
+                {children}
+                <Footer />
+                <Toast />
+                <Analytics />
+                <SpeedInsights />
+              </SearchProvider>
+            </ProgressProvider>
+          </ToastProvider>
         </ThemeProvider>
       </body>
     </html>

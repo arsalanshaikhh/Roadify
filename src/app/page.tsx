@@ -10,6 +10,10 @@ export default function Home() {
     statsMap[roadmap.id] = getRoadmapStats(roadmap);
   }
   const totalSkills = roadmaps.reduce((sum, r) => sum + r.nodes.length, 0);
+  const totalResources = Object.values(statsMap).reduce(
+    (sum, s) => sum + s.freeResourceCount + s.paidResourceCount,
+    0
+  );
 
   return (
     <>
@@ -39,7 +43,7 @@ export default function Home() {
             </div>
             <div className="h-8 w-px bg-gray-200 dark:bg-gray-800" />
             <div className="text-center">
-              <div className="text-2xl font-bold text-gray-900 dark:text-white">500+</div>
+              <div className="text-2xl font-bold text-gray-900 dark:text-white">{totalResources}+</div>
               <div className="text-gray-500 dark:text-gray-400">Resources</div>
             </div>
           </div>

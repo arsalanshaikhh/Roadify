@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { createContext, useContext, useState, useCallback } from 'react';
 import type { ReactNode } from 'react';
 
 const STORAGE_KEY = 'roadify_progress';
@@ -18,14 +18,14 @@ const ProgressContext = createContext<ProgressContextValue>({
 });
 
 export function ProgressProvider({ children }: { children: ReactNode }) {
-  const [completedSlugs, setCompletedSlugs] = useState<Set<string>>(new Set());
-
-  useEffect(() => {
+  const [completedSlugs, setCompletedSlugs] = useState<Set<string>>(() => {
+    if (typeof window === 'undefined') return new Set();
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) setCompletedSlugs(new Set(JSON.parse(stored) as string[]));
+      if (stored) return new Set(JSON.parse(stored) as string[]);
     } catch {}
-  }, []);
+    return new Set();
+  });
 
   const toggle = useCallback((slug: string) => {
     setCompletedSlugs((prev) => {

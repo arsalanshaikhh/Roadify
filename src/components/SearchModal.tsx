@@ -82,7 +82,12 @@ export default function SearchModal() {
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-[12vh] px-4">
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={close} />
-      <div className="relative w-full max-w-xl rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-2xl overflow-hidden">
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Search"
+        className="relative w-full max-w-xl rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-2xl overflow-hidden"
+      >
         {/* Input */}
         <div className="flex items-center gap-3 border-b border-gray-100 dark:border-gray-800 px-4 py-3">
           <svg className="w-4 h-4 text-gray-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">

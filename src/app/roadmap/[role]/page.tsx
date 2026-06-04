@@ -29,7 +29,7 @@ export default async function RoadmapPage({ params }: Props) {
   if (!roadmap) notFound();
 
   return (
-    <div className="flex h-[calc(100vh-57px)] flex-col lg:flex-row">
+    <div className="flex h-[calc(100vh-var(--navbar-height))] flex-col lg:flex-row">
       <TopicsSidebar nodes={roadmap.nodes} />
       <div className="flex flex-1 flex-col overflow-hidden">
         <div className="sticky top-0 z-10 border-b border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-gray-950/95 backdrop-blur-sm px-6 py-4">

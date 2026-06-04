@@ -16,6 +16,7 @@ interface SearchContextValue {
   isOpen: boolean;
   open: () => void;
   close: () => void;
+  toggle: () => void;
   items: SearchItem[];
 }
 
@@ -23,13 +24,20 @@ const SearchContext = createContext<SearchContextValue>({
   isOpen: false,
   open: () => {},
   close: () => {},
+  toggle: () => {},
   items: [],
 });
 
 export function SearchProvider({ children, items }: { children: ReactNode; items: SearchItem[] }) {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <SearchContext.Provider value={{ isOpen, open: () => setIsOpen(true), close: () => setIsOpen(false), items }}>
+    <SearchContext.Provider value={{
+      isOpen,
+      open: () => setIsOpen(true),
+      close: () => setIsOpen(false),
+      toggle: () => setIsOpen((v) => !v),
+      items,
+    }}>
       {children}
     </SearchContext.Provider>
   );

@@ -41,7 +41,8 @@ export default function RoleCard({ roadmap, categoryColor, stats }: Props) {
   return (
     <Link
       href={`/roadmap/${roadmap.id}`}
-      className="group block rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-md transition-all"
+      aria-label={`${roadmap.title} roadmap`}
+      className="group block rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-5 hover:border-gray-300 dark:hover:border-gray-600 hover:shadow-md transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
     >
       <div className="flex items-start gap-3">
         <span className="text-2xl leading-none mt-0.5 flex-shrink-0">{icon}</span>

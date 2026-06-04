@@ -4,22 +4,22 @@ import { useSearch } from '@/context/SearchContext';
 import { useEffect } from 'react';
 
 export default function SearchTrigger() {
-  const { open } = useSearch();
+  const { toggle } = useSearch();
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
-        open();
+        toggle();
       }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [open]);
+  }, [toggle]);
 
   return (
     <button
-      onClick={open}
+      onClick={toggle}
       className="flex w-full max-w-xs items-center gap-2 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 px-3 py-2 text-sm text-gray-400 dark:text-gray-400 hover:border-indigo-400 dark:hover:border-gray-500 hover:bg-white dark:hover:bg-gray-800 transition-all shadow-sm"
     >
       <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">

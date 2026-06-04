@@ -52,10 +52,10 @@ export default function SkillPageClient({ skill, from }: Props) {
         </Link>
         <button
           onClick={handleToggle}
-          className={`flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm transition-colors ${
+          className={`flex items-center gap-2 rounded-lg border px-3 py-1.5 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 ${
             done
-              ? 'border-emerald-700 bg-emerald-900/30 text-emerald-400 hover:bg-emerald-900/50'
-              : 'border-gray-700 text-gray-400 hover:border-gray-500 hover:text-white'
+              ? 'border-emerald-600 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/50'
+              : 'border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:border-gray-400 dark:hover:border-gray-500 hover:text-gray-900 dark:hover:text-white'
           }`}
         >
           {done ? '✓ Completed' : 'Mark complete'}
@@ -70,7 +70,9 @@ export default function SkillPageClient({ skill, from }: Props) {
           </span>
         )}
       </div>
-      <p className="mb-6 text-gray-600 dark:text-gray-400">{skill.description}</p>
+      <p className="text-gray-600 dark:text-gray-400">{skill.description}</p>
+
+      <div className="my-8 border-t border-gray-200 dark:border-gray-800" />
 
       {skill.topics.length > 0 && (
         <section className="mb-6 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 p-5">

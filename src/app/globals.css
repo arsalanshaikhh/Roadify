@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  --navbar-height: 57px;
   --bg-base: #f9fafb;
   --bg-surface: #ffffff;
   --bg-elevated: #f3f4f6;

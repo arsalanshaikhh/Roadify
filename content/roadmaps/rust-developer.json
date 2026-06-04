@@ -1,0 +1,20 @@
+{
+  "id": "rust-developer",
+  "title": "Rust Developer",
+  "category": "software",
+  "description": "Build blazing-fast, memory-safe systems, CLIs, and WebAssembly apps with Rust",
+  "nodes": [
+    { "id": "rust", "label": "Rust", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "linux", "label": "Linux", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "git", "label": "Git", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "testing-fundamentals", "label": "Testing", "required": true, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "networking", "label": "Networking", "required": false, "phase": "advanced", "position": { "x": 250, "y": 300 } }
+  ],
+  "edges": [
+    { "source": "rust", "target": "linux" },
+    { "source": "linux", "target": "git" },
+    { "source": "linux", "target": "testing-fundamentals" },
+    { "source": "git", "target": "networking" },
+    { "source": "testing-fundamentals", "target": "networking" }
+  ]
+}

@@ -33,6 +33,7 @@ export default function Navbar() {
             <Link href="/#software" className="hover:text-gray-900 dark:hover:text-white transition-colors">Software</Link>
             <Link href="/#data" className="hover:text-gray-900 dark:hover:text-white transition-colors">Data</Link>
             <Link href="/#ai" className="hover:text-gray-900 dark:hover:text-white transition-colors">AI & ML</Link>
+            <Link href="/#emerging" className="hover:text-violet-600 dark:hover:text-violet-400 transition-colors">Emerging</Link>
           </div>
           <MobileSearchButton />
           <ThemeToggle />

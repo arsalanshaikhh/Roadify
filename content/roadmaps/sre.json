@@ -1,0 +1,26 @@
+{
+  "id": "sre",
+  "title": "Site Reliability Engineer",
+  "category": "software",
+  "description": "Keep systems reliable at scale — SLOs, incident management, and automation to eliminate toil",
+  "nodes": [
+    { "id": "linux", "label": "Linux", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "networking", "label": "Networking", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "docker", "label": "Docker", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "cloud", "label": "Cloud Platforms", "required": true, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "kubernetes", "label": "Kubernetes", "required": true, "phase": "core", "position": { "x": 100, "y": 300 } },
+    { "id": "monitoring", "label": "Monitoring & Observability", "required": true, "phase": "core", "position": { "x": 400, "y": 300 } },
+    { "id": "sre-practices", "label": "SRE Practices", "required": true, "phase": "advanced", "position": { "x": 250, "y": 400 } },
+    { "id": "ci-cd", "label": "CI/CD", "required": false, "phase": "advanced", "position": { "x": 460, "y": 400 } }
+  ],
+  "edges": [
+    { "source": "linux", "target": "networking" },
+    { "source": "networking", "target": "docker" },
+    { "source": "networking", "target": "cloud" },
+    { "source": "docker", "target": "kubernetes" },
+    { "source": "cloud", "target": "monitoring" },
+    { "source": "kubernetes", "target": "sre-practices" },
+    { "source": "monitoring", "target": "sre-practices" },
+    { "source": "sre-practices", "target": "ci-cd" }
+  ]
+}

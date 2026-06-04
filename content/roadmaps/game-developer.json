@@ -1,0 +1,20 @@
+{
+  "id": "game-developer",
+  "title": "Game Developer",
+  "category": "emerging",
+  "description": "Create interactive games with Unity and C# — from indie projects to console and mobile titles",
+  "nodes": [
+    { "id": "csharp", "label": "C#", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "unity", "label": "Unity Engine", "required": true, "phase": "core", "position": { "x": 250, "y": 100 } },
+    { "id": "game-design", "label": "Game Design", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "git", "label": "Git", "required": false, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "testing-fundamentals", "label": "Testing", "required": false, "phase": "advanced", "position": { "x": 250, "y": 300 } }
+  ],
+  "edges": [
+    { "source": "csharp", "target": "unity" },
+    { "source": "unity", "target": "game-design" },
+    { "source": "unity", "target": "git" },
+    { "source": "game-design", "target": "testing-fundamentals" },
+    { "source": "git", "target": "testing-fundamentals" }
+  ]
+}

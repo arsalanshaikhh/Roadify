@@ -1,0 +1,22 @@
+{
+  "id": "ai-engineer",
+  "title": "AI Engineer",
+  "category": "ai",
+  "description": "Build production AI applications — integrate LLMs, build RAG systems, and ship AI-powered products at scale",
+  "nodes": [
+    { "id": "python", "label": "Python", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "rest-apis", "label": "REST APIs", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "llms", "label": "LLMs & Transformers", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "vector-databases", "label": "Vector Databases", "required": true, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "ai-agents", "label": "AI Agents", "required": true, "phase": "core", "position": { "x": 250, "y": 300 } },
+    { "id": "ai-engineering", "label": "AI Engineering", "required": true, "phase": "advanced", "position": { "x": 250, "y": 400 } }
+  ],
+  "edges": [
+    { "source": "python", "target": "rest-apis" },
+    { "source": "rest-apis", "target": "llms" },
+    { "source": "rest-apis", "target": "vector-databases" },
+    { "source": "llms", "target": "ai-agents" },
+    { "source": "vector-databases", "target": "ai-agents" },
+    { "source": "ai-agents", "target": "ai-engineering" }
+  ]
+}

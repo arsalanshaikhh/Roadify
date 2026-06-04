@@ -1,0 +1,24 @@
+{
+  "id": "platform-engineer",
+  "title": "Platform Engineer",
+  "category": "software",
+  "description": "Build the internal developer platform that empowers product teams to ship faster and safer",
+  "nodes": [
+    { "id": "linux", "label": "Linux", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "docker", "label": "Docker", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "kubernetes", "label": "Kubernetes", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "terraform", "label": "Terraform (IaC)", "required": true, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "ci-cd", "label": "CI/CD", "required": true, "phase": "core", "position": { "x": 100, "y": 300 } },
+    { "id": "cloud", "label": "Cloud Platforms", "required": true, "phase": "core", "position": { "x": 400, "y": 300 } },
+    { "id": "platform-engineering", "label": "Platform Engineering", "required": true, "phase": "advanced", "position": { "x": 250, "y": 400 } }
+  ],
+  "edges": [
+    { "source": "linux", "target": "docker" },
+    { "source": "docker", "target": "kubernetes" },
+    { "source": "docker", "target": "terraform" },
+    { "source": "kubernetes", "target": "ci-cd" },
+    { "source": "terraform", "target": "cloud" },
+    { "source": "ci-cd", "target": "platform-engineering" },
+    { "source": "cloud", "target": "platform-engineering" }
+  ]
+}

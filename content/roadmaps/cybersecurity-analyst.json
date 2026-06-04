@@ -1,0 +1,22 @@
+{
+  "id": "cybersecurity-analyst",
+  "title": "Cybersecurity Analyst",
+  "category": "software",
+  "description": "Defend organizations against cyber threats — monitor, detect, and respond to security incidents (Blue Team)",
+  "nodes": [
+    { "id": "networking", "label": "Networking", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "linux", "label": "Linux", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "cybersecurity-fundamentals", "label": "Security Fundamentals", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "siem-tools", "label": "SIEM & Threat Hunting", "required": true, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "monitoring", "label": "Monitoring & Logging", "required": true, "phase": "core", "position": { "x": 250, "y": 300 } },
+    { "id": "cloud-security", "label": "Cloud Security", "required": false, "phase": "advanced", "position": { "x": 250, "y": 400 } }
+  ],
+  "edges": [
+    { "source": "networking", "target": "linux" },
+    { "source": "linux", "target": "cybersecurity-fundamentals" },
+    { "source": "linux", "target": "siem-tools" },
+    { "source": "cybersecurity-fundamentals", "target": "monitoring" },
+    { "source": "siem-tools", "target": "monitoring" },
+    { "source": "monitoring", "target": "cloud-security" }
+  ]
+}

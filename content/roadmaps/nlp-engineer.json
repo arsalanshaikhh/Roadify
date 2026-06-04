@@ -1,0 +1,22 @@
+{
+  "id": "nlp-engineer",
+  "title": "NLP Engineer",
+  "category": "ai",
+  "description": "Build systems that understand and generate human language — from text classification to large language models",
+  "nodes": [
+    { "id": "python", "label": "Python", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "machine-learning", "label": "Machine Learning", "required": true, "phase": "core", "position": { "x": 250, "y": 100 } },
+    { "id": "deep-learning", "label": "Deep Learning", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "nlp", "label": "NLP Fundamentals", "required": true, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "llms", "label": "LLMs & Transformers", "required": true, "phase": "advanced", "position": { "x": 250, "y": 300 } },
+    { "id": "mlops", "label": "MLOps", "required": false, "phase": "advanced", "position": { "x": 250, "y": 400 } }
+  ],
+  "edges": [
+    { "source": "python", "target": "machine-learning" },
+    { "source": "machine-learning", "target": "deep-learning" },
+    { "source": "machine-learning", "target": "nlp" },
+    { "source": "deep-learning", "target": "llms" },
+    { "source": "nlp", "target": "llms" },
+    { "source": "llms", "target": "mlops" }
+  ]
+}

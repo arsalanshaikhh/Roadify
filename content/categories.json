@@ -1,5 +1,6 @@
 [
   { "id": "software", "label": "Software Engineering", "color": "indigo" },
-  { "id": "data", "label": "Data", "color": "sky" },
-  { "id": "ai", "label": "AI & Machine Learning", "color": "emerald" }
+  { "id": "data", "label": "Data & Analytics", "color": "sky" },
+  { "id": "ai", "label": "AI & Machine Learning", "color": "emerald" },
+  { "id": "emerging", "label": "Emerging Technologies", "color": "violet" }
 ]

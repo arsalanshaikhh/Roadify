@@ -29,8 +29,9 @@ export default function MobileMenu() {
           <nav className="flex flex-col gap-1">
             {[
               { href: '/#software', label: '🖥️ Software Engineering' },
-              { href: '/#data', label: '📊 Data' },
+              { href: '/#data', label: '📊 Data & Analytics' },
               { href: '/#ai', label: '🤖 AI & ML' },
+              { href: '/#emerging', label: '🚀 Emerging Tech' },
             ].map((item) => (
               <Link
                 key={item.href}

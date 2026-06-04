@@ -14,6 +14,7 @@ const categoryMeta: Record<string, { icon: string; colorClass: string; borderCla
   software: { icon: '🖥️', colorClass: 'text-indigo-600 dark:text-indigo-400', borderClass: 'border-indigo-500' },
   data: { icon: '📊', colorClass: 'text-sky-600 dark:text-sky-400', borderClass: 'border-sky-500' },
   ai: { icon: '🤖', colorClass: 'text-emerald-600 dark:text-emerald-400', borderClass: 'border-emerald-500' },
+  emerging: { icon: '🚀', colorClass: 'text-violet-600 dark:text-violet-400', borderClass: 'border-violet-500' },
 };
 
 export default function RoleSearch({ roadmaps, categories, statsMap }: Props) {

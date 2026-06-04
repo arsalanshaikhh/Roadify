@@ -1,0 +1,20 @@
+{
+  "id": "computer-vision-engineer",
+  "title": "Computer Vision Engineer",
+  "category": "ai",
+  "description": "Build systems that see and understand images and video — object detection, segmentation, and visual AI",
+  "nodes": [
+    { "id": "python", "label": "Python", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "machine-learning", "label": "Machine Learning", "required": true, "phase": "core", "position": { "x": 250, "y": 100 } },
+    { "id": "deep-learning", "label": "Deep Learning", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "computer-vision", "label": "Computer Vision", "required": true, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "mlops", "label": "MLOps", "required": false, "phase": "advanced", "position": { "x": 250, "y": 300 } }
+  ],
+  "edges": [
+    { "source": "python", "target": "machine-learning" },
+    { "source": "machine-learning", "target": "deep-learning" },
+    { "source": "machine-learning", "target": "computer-vision" },
+    { "source": "deep-learning", "target": "mlops" },
+    { "source": "computer-vision", "target": "mlops" }
+  ]
+}

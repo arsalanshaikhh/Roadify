@@ -1,0 +1,21 @@
+{
+  "id": "ar-vr-developer",
+  "title": "AR/VR Developer",
+  "category": "emerging",
+  "description": "Build immersive spatial experiences for Meta Quest, Apple Vision Pro, and mixed reality platforms",
+  "nodes": [
+    { "id": "csharp", "label": "C#", "required": true, "phase": "foundation", "position": { "x": 150, "y": 0 } },
+    { "id": "javascript", "label": "JavaScript", "required": false, "phase": "foundation", "position": { "x": 350, "y": 0 } },
+    { "id": "unity", "label": "Unity Engine", "required": true, "phase": "core", "position": { "x": 150, "y": 100 } },
+    { "id": "xr-development", "label": "XR Development", "required": true, "phase": "core", "position": { "x": 350, "y": 100 } },
+    { "id": "game-design", "label": "Spatial Design", "required": false, "phase": "advanced", "position": { "x": 150, "y": 200 } },
+    { "id": "testing-fundamentals", "label": "Testing", "required": false, "phase": "advanced", "position": { "x": 350, "y": 200 } }
+  ],
+  "edges": [
+    { "source": "csharp", "target": "unity" },
+    { "source": "javascript", "target": "xr-development" },
+    { "source": "unity", "target": "xr-development" },
+    { "source": "xr-development", "target": "game-design" },
+    { "source": "xr-development", "target": "testing-fundamentals" }
+  ]
+}

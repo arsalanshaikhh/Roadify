@@ -1,0 +1,20 @@
+{
+  "id": "embedded-engineer",
+  "title": "Embedded / IoT Engineer",
+  "category": "emerging",
+  "description": "Program microcontrollers, sensors, and IoT devices — where software meets the physical world",
+  "nodes": [
+    { "id": "c-cpp", "label": "C / C++", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "linux", "label": "Linux", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "embedded-systems", "label": "Embedded Systems", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "networking", "label": "Networking", "required": false, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "git", "label": "Git", "required": false, "phase": "advanced", "position": { "x": 250, "y": 300 } }
+  ],
+  "edges": [
+    { "source": "c-cpp", "target": "linux" },
+    { "source": "linux", "target": "embedded-systems" },
+    { "source": "linux", "target": "networking" },
+    { "source": "embedded-systems", "target": "git" },
+    { "source": "networking", "target": "git" }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "go-developer",
+  "title": "Go Developer",
+  "category": "software",
+  "description": "Build scalable backends, microservices, and CLI tools with Go — Google's language for cloud-native development",
+  "nodes": [
+    { "id": "golang", "label": "Go (Golang)", "required": true, "phase": "foundation", "position": { "x": 250, "y": 0 } },
+    { "id": "git", "label": "Git", "required": true, "phase": "foundation", "position": { "x": 250, "y": 100 } },
+    { "id": "rest-apis", "label": "REST APIs", "required": true, "phase": "core", "position": { "x": 100, "y": 200 } },
+    { "id": "databases", "label": "Databases", "required": true, "phase": "core", "position": { "x": 400, "y": 200 } },
+    { "id": "docker", "label": "Docker", "required": false, "phase": "advanced", "position": { "x": 100, "y": 300 } },
+    { "id": "testing-backend", "label": "Testing", "required": false, "phase": "advanced", "position": { "x": 400, "y": 300 } }
+  ],
+  "edges": [
+    { "source": "golang", "target": "git" },
+    { "source": "git", "target": "rest-apis" },
+    { "source": "git", "target": "databases" },
+    { "source": "rest-apis", "target": "docker" },
+    { "source": "databases", "target": "testing-backend" }
+  ]
+}
